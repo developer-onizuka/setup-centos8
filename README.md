@@ -64,7 +64,13 @@ $ sudo virt-manager
 See also https://github.com/developer-onizuka/nvidia-docker_VirtualMachine2
 
 ```
-$ virsh edit ubuntu20.04-gpu
+$ wget https://releases.ubuntu.com/20.04/ubuntu-20.04.3-desktop-amd64.iso
+$ virt-manager
+  ---> Making virtual machine named as "nvidia-docker" with GPU.
+```
+
+```
+$ virsh edit nvidia-docker
 ・・・
   <features>
   ・・・

@@ -1,11 +1,11 @@
 # setup-centos8
 
-# 1. Chrome install
+# 1. Chrome install on Host Machine CentOS8
 ```
 $ sudo dnf localinstall google-chrome-stable_current_x86_64.rpm
 ```
 
-# 2. Install Nvidia-Driver
+# 2. Install Nvidia-Driver on Host Machine CentOS8
 ```
 $ sudo subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms
 $ sudo subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms
@@ -14,7 +14,7 @@ $ sudo dnf config-manager --add-repo=https://developer.download.nvidia.com/compu
 $ sudo dnf module install nvidia-driver:latest
 ```
 
-# 3. Enable IOMMU and Load vfio-pci driver instead of Nvidia driver
+# 3. Enable IOMMU and Load vfio-pci driver instead of Nvidia driver on Host Machine CentOS8
 ```
 $ sudo su
 # vi /etc/default/grub 
@@ -51,7 +51,7 @@ $ lspci -nnk -d 10de:0fb9
 	Kernel modules: snd_hda_intel
 ```
 
-# 4. Install KVM
+# 4. Install KVM on Host Machine CentOS8
 ```
 $ sudo dnf install -y qemu-kvm qemu-img libvirt virt-install
 $ sudo systemctl start libvirtd
@@ -60,7 +60,7 @@ $ sudo dnf install -y virt-manager
 $ sudo virt-manager 
 ```
 
-# 5. Install Ubuntu as a Virtual Machine
+# 5. Install Ubuntu as a Virtual Machine with KVM
 See also https://github.com/developer-onizuka/nvidia-docker_VirtualMachine2
 
 ```

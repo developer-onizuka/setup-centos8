@@ -18,14 +18,12 @@ $ reboot
 ```
 
 # 3. Install Nvidia-Driver
-Before this step, download the Nvidia driver from https://www.nvidia.co.jp/Download/index.aspx?lang=jp .
 ```
-$ sudo yum -y update
-$ sudo yum -y install kernel-devel kernel-headers gcc make git pciutils tmux
-$ sudo bash NVIDIA-Linux-x86_64-470.74.run
-
-$ sudo systemctl enable gdm.service
-$ reboot
+sudo subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms
+sudo subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms
+sudo subscription-manager repos --enable=codeready-builder-for-rhel-8-x86_64-rpms
+sudo dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+sudo dnf module install nvidia-driver:latest
 ```
 
 # 4. Enable IOMMU and Load vfio-pci driver instead of Nouveau driver

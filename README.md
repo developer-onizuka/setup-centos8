@@ -19,7 +19,7 @@ $ sudo dnf module install -y nvidia-driver:latest
 $ sudo su
 # vi /etc/default/grub 
 ...
-GRUB_CMDLINE_LINUX="crashkernel=auto spectre_v2=retpoline rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet intel_iommu=on vfio_iommu_type1.allow_unsafe_interrupts=1 iommu=pt"
+GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=cl/root rhgb quiet rd.driver.blacklist=nouveau intel_iommu=on vfio_iommu_type1.allow_unsafe_interrupts=1 iommu=pt"
 ...
 
 # cat <<EOF > /etc/modprobe.d/vfio.conf

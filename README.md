@@ -11,7 +11,7 @@ $ sudo subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms
 $ sudo subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms
 $ sudo subscription-manager repos --enable=codeready-builder-for-rhel-8-x86_64-rpms
 $ sudo dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
-$ sudo dnf module install nvidia-driver:latest
+$ sudo dnf module install -y nvidia-driver:latest
 ```
 
 # 3. Enable IOMMU and Load vfio-pci driver instead of Nvidia driver on Host Machine CentOS8

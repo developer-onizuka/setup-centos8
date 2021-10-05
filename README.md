@@ -59,3 +59,22 @@ $ virsh list
 $ sudo dnf install -y virt-manager
 $ sudo virt-manager 
 ```
+
+# 5. Install Ubuntu as a Virtual Machine
+See also https://github.com/developer-onizuka/nvidia-docker_VirtualMachine2
+
+```
+$ virsh edit ubuntu20.04-gpu
+・・・
+  <features>
+  ・・・
+    <hyperv>
+      <vendor_id state='on' value='whatever'/>
+    </hyperv>
+    <kvm>
+      <hidden state='on'/>
+    </kvm>
+  ・・・
+  </features>
+・・・
+```

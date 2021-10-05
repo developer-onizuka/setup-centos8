@@ -5,19 +5,7 @@
 $ sudo dnf localinstall google-chrome-stable_current_x86_64.rpm
 ```
 
-# 2. Disable Nouveau driver
-```
-$ sudo su
-# mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img
-# dracut --omit-drivers nouveau /boot/initramfs-$(uname -r).img $(uname -r)
-# echo 'blacklist nouveau' >> /etc/modprobe.d/modprobe.conf
-# echo 'blacklist nouveau' >> /etc/modprobe.d/nouveau_blacklist.conf
-# exit
-$ sudo systemctl disable gdm.service
-$ reboot
-```
-
-# 3. Install Nvidia-Driver
+# 2. Install Nvidia-Driver
 ```
 sudo subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms
 sudo subscription-manager repos --enable=rhel-8-for-x86_64-baseos-rpms
@@ -26,7 +14,7 @@ sudo dnf config-manager --add-repo=https://developer.download.nvidia.com/compute
 sudo dnf module install nvidia-driver:latest
 ```
 
-# 4. Enable IOMMU and Load vfio-pci driver instead of Nouveau driver
+# 3. Enable IOMMU and Load vfio-pci driver instead of Nouveau driver
 ```
 $ sudo su
 # vi /etc/default/grub 
@@ -63,20 +51,21 @@ $ lspci -nnk -d 10de:0fb9
 	Kernel modules: snd_hda_intel
 ```
 
-# 5. Install KVM and Vagrant
+# 4. Install KVM and Vagrant
 ```
-$ sudo yum install qemu-kvm qemu-img libvirt virt-install
-$ sudo yum install qemu libvirt-devel ruby-devel
+$ sudo dnf install -y qemu-kvm qemu-img libvirt virt-install
+$ sudo dnf install -y libvirt-devel ruby-devel
 
 $ sudo systemctl start libvirtd
 $ virsh list
-$ sudo yum install virt-manager
+$ sudo dnf install -y virt-manager
 $ sudo virt-manager 
 
 $ sudo yum install -y yum-utils
 $ sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 $ sudo yum -y install vagrant
 $ vagrant plugin list
+$ sudo dnf groupinstall "Development Tools" -y
 $ CONFIGURE_ARGS="with-libvirt-include=/usr/include/libvirt with-libvirt-lib=/usr/lib64" vagrant plugin install vagrant-libvirt
 ```
 

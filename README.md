@@ -87,29 +87,29 @@ $ virsh edit nvidia-docker
 
 # 6. Install Vagrant
 ```
-$ dnf update -y
-$ dnf install -y @virt virt-install
-$ dnf install -y ruby ruby-devel
+$ sudo dnf update -y
+$ sudo dnf install -y @virt virt-install
+$ sudo dnf install -y ruby ruby-devel
 $ ruby -v
-$ dnf install -y make gcc rpm-build ruby-devel zlib-devel
-$ dnf install -y rsync
+$ sudo dnf install -y make gcc rpm-build ruby-devel zlib-devel
 $ gem install nokogiri
 $ wget https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.rpm
-$ dnf install -y vagrant_2.2.9_x86_64.rpm
+$ sudo dnf install -y vagrant_2.2.9_x86_64.rpm
 $ vagrant --version
-$ dnf install -y libvirt-devel
+$ sudo dnf install -y libvirt-devel
 $ CONFIGURE_ARGS='with-ldflags=-L/opt/vagrant/embedded/lib with-libvirt-include=/usr/include/libvirt with-libvirt-lib=/usr/lib' vagrant plugin install vagrant-libvirt
 
+$ sudo dnf groupinstall "Development Tools" -y
+$ sudo dnf install -y cmake
+
 $ dnf download --source libssh
-$ dnf install -y cmake
-$ rpm2cpio libssh-0.9.0-5.fc30.src.rpm | cpio -imdV
 $ rpm2cpio libssh-0.9.4-2.el8.src.rpm | cpio -imdV
 $ tar xf libssh-0.9.4.tar.xz 
 $ mkdir build
 $ cd build/
 $ cmake ../libssh-0.9.4 -DOPENSSL_ROOT_DIR=/opt/vagrant/embedded/
 $ make
-$ cp lib/libssh* /opt/vagrant/embedded/lib64
+$ sudo cp lib/libssh* /opt/vagrant/embedded/lib64
 ```
 
 # 7. Run Vagrant

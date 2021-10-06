@@ -110,6 +110,14 @@ $ cd build/
 $ cmake ../libssh-0.9.4 -DOPENSSL_ROOT_DIR=/opt/vagrant/embedded/
 $ make
 $ sudo cp lib/libssh* /opt/vagrant/embedded/lib64
+
+$ wget http://vault.centos.org/8.2.2004/BaseOS/Source/SPackages/krb5-1.17-18.el8.src.rpm
+$ rpm2cpio krb5-1.17-18.el8.src.rpm | cpio -imdV
+$ tar xf krb5-1.17.tar.gz 
+$ cd krb5-1.17/src/
+$ LDFLAGS='-L/opt/vagrant/embedded/' ./configure
+$ make
+$ sudo cp lib/libk5crypto.so.3 /opt/vagrant/embedded/lib64/
 ```
 
 # 7. Run Vagrant

@@ -102,9 +102,9 @@ $ CONFIGURE_ARGS='with-ldflags=-L/opt/vagrant/embedded/lib with-libvirt-include=
 
 You might have the errors like below while vagrant up --provider=libvirt:
 
-ERROR warden: Error occurred: /opt/vagrant/embedded/lib64/libcrypto.so.1.1: version `OPENSSL_1_1_1b' not found (required by /lib64/libssh.so.4) - /root/.vagrant.d/gems/2.6.6/gems/ruby-libvirt-0.7.1/lib/_libvirt.so
+lib64/libcrypto.so.1.1: version `OPENSSL_1_1_1b' not found (required by /lib64/libssh.so.4) - /root/.vagrant.d/gems/2.6.6/gems/ruby-libvirt-0.7.1/lib/_libvirt.so
 -----
-/lib64/libk5crypto.so.3: undefined symbol: EVP_KDF_ctrl, version OPENSSL_1_1_1b - /root/.vagrant.d/gems/2.6.6/gems/ruby-libvirt-0.7.1/lib/_libvirt.so
+lib64/libk5crypto.so.3: undefined symbol: EVP_KDF_ctrl, version OPENSSL_1_1_1b - /root/.vagrant.d/gems/2.6.6/gems/ruby-libvirt-0.7.1/lib/_libvirt.so
 -----
 
 

@@ -1,5 +1,25 @@
 # setup-centos8
 
+# 0. Hardware
+```
+   (1) Precision Tower 3620
+       Intel(R) Core(TM) i5-7600 CPU @ 3.50GHz
+       DIMM slot1: DDR4 DIMM 16GB (KLEVV)
+       DIMM slot2: DDR4 DIMM 16GB (KLEVV)
+       DIMM slot3: Empty
+       DIMM slot4: Empty
+   (2) NVMe SSD
+       KLEVV SSD 256GB CRAS C710 M.2 Type2280 PCIe3x4 NVMe 3D TLC NAND Flash
+       P/N: K256GM2SP0-C71
+       Performance Spec: Read 1950MB/s, Write 1250MB/s
+   (3) NVIDIA Quadro P1000
+       For Pass Through at Virtual Machine (do not use as VGA but for GPGPU)
+   (4) NVIDIA Quadro K600
+       For VGA at Host Machine for Dual Display
+   (5) Web Camera
+       Logitech, Inc. Webcam C270
+```
+
 # 1. Chrome install on Host Machine CentOS8
 ```
 $ sudo dnf localinstall google-chrome-stable_current_x86_64.rpm
@@ -130,7 +150,7 @@ $ make
 $ sudo cp lib/libk5crypto.so.3 /opt/vagrant/embedded/lib64/
 ```
 
-# 7. Run Vagrant
+# 7. Run Vagrant test
 ```
 $ mkdir centos
 $ cd centos/
@@ -138,3 +158,12 @@ $ vagrant box add centos/7 --provider=libvirt
 $ vagrant init centos/7
 $ vagrant up --provider=libvirt
 ```
+
+# 8. Run Vagrant and GPU workloads
+You might use Vagrant file. See also https://github.com/developer-onizuka/nvidia-docker_VirtualMachine2 .
+```
+$ git clone https://github.com/developer-onizuka/nvidia-docker_VirtualMachine2
+$ cd nvidia-docker_VirtualMachine2
+$ vagrant up --provider=libvirt
+```
+

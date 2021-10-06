@@ -98,9 +98,6 @@ $ sudo dnf install -y vagrant_2.2.9_x86_64.rpm
 $ vagrant --version
 $ sudo dnf install -y libvirt-devel
 $ CONFIGURE_ARGS='with-ldflags=-L/opt/vagrant/embedded/lib with-libvirt-include=/usr/include/libvirt with-libvirt-lib=/usr/lib' vagrant plugin install vagrant-libvirt
-
-$ sudo dnf groupinstall "Development Tools" -y
-$ sudo dnf install -y cmake
 ```
 
 You might have the errors like below while vagrant up --provider=libvirt:
@@ -113,6 +110,8 @@ ERROR warden: Error occurred: /opt/vagrant/embedded/lib64/libcrypto.so.1.1: vers
 
 The followings are for the measures to take.
 ```
+$ sudo dnf groupinstall "Development Tools" -y
+$ sudo dnf install -y cmake
 $ dnf download --source libssh
 $ rpm2cpio libssh-0.9.4-2.el8.src.rpm | cpio -imdV
 $ tar xf libssh-0.9.4.tar.xz 

@@ -22,7 +22,7 @@
 
 # 1. Chrome install on Host Machine CentOS8
 ```
-$ sudo dnf localinstall google-chrome-stable_current_x86_64.rpm
+$ sudo dnf localinstall -y google-chrome-stable_current_x86_64.rpm
 ```
 
 # 2. Install Nvidia-Driver on Host Machine CentOS8

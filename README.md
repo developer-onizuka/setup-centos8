@@ -132,6 +132,8 @@ The followings are for the measures to take.
 ```
 $ sudo dnf groupinstall "Development Tools" -y
 $ sudo dnf install -y cmake
+$ mkdir vagrant_patch
+$ cd vagrant_patch
 $ sudo dnf download --source libssh
 $ rpm2cpio libssh-0.9.4-2.el8.src.rpm | cpio -imdV
 $ tar xf libssh-0.9.4.tar.xz 

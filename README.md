@@ -22,6 +22,8 @@
 
 # 1. Chrome install on Host Machine CentOS8
 ```
+$ sudo sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-*
+$ sudo sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-*
 $ sudo dnf localinstall -y google-chrome-stable_current_x86_64.rpm
 ```
 
